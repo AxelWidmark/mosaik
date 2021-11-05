@@ -46,7 +46,6 @@ def get_pop_params(vector, num_vel_gaussians=10):
         vel_disps_v = sigmoid(vector[5+2*num_vel_gaussians:5+3*num_vel_gaussians], disp_bounds)
         vel_disps_w = np.cumsum( sigmoid(vector[5+3*num_vel_gaussians:5+4*num_vel_gaussians], accum_w_disp_bounds) )
         vel_disps = np.transpose( [vel_disps_u, vel_disps_v, vel_disps_w] )
-        # not 100 % sure this is right with u and v
         vel_means_u = sigmoid(vector[5+4*num_vel_gaussians:5+5*num_vel_gaussians], mean_bounds)
         vel_means_v = sigmoid(vector[5+5*num_vel_gaussians:5+6*num_vel_gaussians], mean_bounds)
         vel_means = np.transpose( [vel_means_u, vel_means_v] )
